@@ -272,7 +272,7 @@ animations = [{
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xfvwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80cx4"]
-size = Vector2(10, 35.000008)
+size = Vector2(3, 10.500004)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e8heu"]
 distance = -132.0
@@ -1616,7 +1616,7 @@ script = ExtResource("1_i2p71")
 
 [node name="player" parent="." instance=ExtResource("3_7jktm")]
 z_index = 10
-position = Vector2(-428.66028, -576.21545)
+position = Vector2(-18, -17)
 floor_max_angle = 1.0471976
 script = ExtResource("4_fc0e3")
 
@@ -2058,7 +2058,7 @@ autoplay = "portal_idle"
 shape = SubResource("SegmentShape2D_xfvwf")
 
 [node name="bg_trigger_to_cave" type="Area2D" parent="areas" node_paths=PackedStringArray("bg1", "bg2", "anim")]
-position = Vector2(221, -628)
+position = Vector2(219, -620)
 scale = Vector2(1, 1.0000001)
 script = ExtResource("14_80cx4")
 bg1 = NodePath("../../player/player_camera/bg1")
@@ -2142,7 +2142,7 @@ position = Vector2(3295, -661)
 shape = SubResource("RectangleShape2D_xa8c5")
 
 [node name="bg_trigger_to_night" type="Area2D" parent="areas" node_paths=PackedStringArray("bg1", "bg2", "anim")]
-position = Vector2(958, -975)
+position = Vector2(967, -975.00006)
 scale = Vector2(0.21591741, 1.0559174)
 script = ExtResource("28_5b14r")
 bg1 = NodePath("../../player/player_camera/bg1")

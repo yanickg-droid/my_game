@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://hiiwsslivcmh"]
+
+[ext_resource type="Texture2D" uid="uid://duvvgyk1oa5eb" path="res://assets/world/Texture/TX Tileset Ground.png" id="1_ve38c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve38c"]
+size = Vector2(27, 14)
+
+[sub_resource type="Animation" id="Animation_hm2mr"]
+length = 2.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_imhcd"]
+resource_name = "movement"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_ve38c"]
+resource_name = "movement1"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xc1es"]
+_data = {
+&"RESET": SubResource("Animation_hm2mr"),
+&"movement": SubResource("Animation_imhcd"),
+&"movement1": SubResource("Animation_ve38c")
+}
+
+[node name="vertical_platform" type="Node2D"]
+
+[node name="vertical_platform" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="vertical_platform"]
+texture = ExtResource("1_ve38c")
+region_enabled = true
+region_rect = Rect2(123, 155, 43, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vertical_platform"]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_ve38c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../vertical_platform")
+libraries = {
+&"": SubResource("AnimationLibrary_xc1es")
+}
+autoplay = "movement"

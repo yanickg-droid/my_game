@@ -8,7 +8,6 @@ var current_bg: Sprite2D
 
 func _ready():
 	current_bg = bg2
-	#body_entered.connect(_on_body_entered)
 
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:

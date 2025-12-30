@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://tit2pubdhht2"]
+[gd_scene load_steps=9 format=3 uid="uid://tit2pubdhht2"]
 
 [ext_resource type="FontFile" uid="uid://bt8yghbc2g2py" path="res://assets/PixelatedEleganceRegular-ovyAA.ttf" id="1_igs2m"]
 [ext_resource type="Script" uid="uid://dbjyn5xlywu8q" path="res://button.gd" id="2_d2nv2"]
-[ext_resource type="Texture2D" uid="uid://bvifoxe6j507j" path="res://output-onlinepngtools.png" id="3_wgsso"]
 [ext_resource type="AudioStream" uid="uid://chfa2lt10580m" path="res://sound_effects/minimal-pop-click-ui-2-198302.mp3" id="4_3pujl"]
 [ext_resource type="Texture2D" uid="uid://dmm0qy5ef707s" path="res://assets/Untitled design.png" id="5_3pujl"]
 
@@ -109,15 +108,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_cmhrf")
 text = "PLAY"
 script = ExtResource("2_d2nv2")
-
-[node name="OutputOnlinepngtools" type="Sprite2D" parent="."]
-position = Vector2(232, 124)
-texture = ExtResource("3_wgsso")
-
-[node name="OutputOnlinepngtools2" type="Sprite2D" parent="."]
-position = Vector2(915, 121)
-texture = ExtResource("3_wgsso")
-flip_h = true
 
 [node name="popup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3pujl")
