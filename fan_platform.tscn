@@ -1,0 +1,201 @@
+[gd_scene load_steps=23 format=3 uid="uid://uhga18ah3kkq"]
+
+[ext_resource type="Script" uid="uid://22t5s37j1emy" path="res://fan_platform_hitbox.gd" id="1_gxn8j"]
+[ext_resource type="Texture2D" uid="uid://djserhtlr5bnq" path="res://assets/player/FallingPlatfrom.png" id="1_u3h54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3h54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3h54"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxn8j"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qptfi"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la2gk"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax3ld"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13ug1"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqfh2"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brwwk"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(224, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dn0b"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkx50"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4jte"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtp5v"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hql4"]
+atlas = ExtResource("1_u3h54")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqxkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3h54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxn8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qptfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la2gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax3ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13ug1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqfh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brwwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dn0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkx50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4jte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtp5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hql4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_qptfi"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gxn8j"]
+resource_name = "jerk_down"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(0.34151006, 1.8025012, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 25), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatableBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(0.34151006, 1.8025012, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 25), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u3h54"]
+resource_name = "move_upwards"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 8, 13, 16),
+"transitions": PackedFloat32Array(2, 0.5, 1, 0.5, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, -250), Vector2(0, -100), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 8, 13, 16),
+"transitions": PackedFloat32Array(2, 0.5, -4.438279, 0.5, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, -250), Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_la2gk"]
+_data = {
+&"RESET": SubResource("Animation_qptfi"),
+&"jerk_down": SubResource("Animation_gxn8j"),
+&"move_upwards": SubResource("Animation_u3h54")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxn8j"]
+size = Vector2(20, 5)
+
+[node name="fan_platform" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -5)
+scale = Vector2(1.0399994, 0.19999993)
+shape = SubResource("RectangleShape2D_u3h54")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+sprite_frames = SubResource("SpriteFrames_mqxkl")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_la2gk")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_gxn8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_gxn8j")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

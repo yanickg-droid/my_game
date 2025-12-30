@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://b60ditxfbj15k"]
+
+[ext_resource type="Texture2D" uid="uid://br5a8dohq2n4k" path="res://assets/Rocky Roads/Rocky Roads/UI/gem.png" id="1_whk3i"]
+[ext_resource type="Script" uid="uid://bpp1yjcubsr1o" path="res://gem_area.gd" id="2_edvqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edvqy"]
+atlas = ExtResource("1_whk3i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp2mg"]
+atlas = ExtResource("1_whk3i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1wgw"]
+atlas = ExtResource("1_whk3i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yy3y"]
+atlas = ExtResource("1_whk3i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkwih"]
+atlas = ExtResource("1_whk3i")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cumba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edvqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp2mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1wgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yy3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkwih")
+}],
+"loop": true,
+"name": &"gem",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whk3i"]
+radius = 5.0
+
+[node name="gem" type="Node2D"]
+
+[node name="gem_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cumba")
+animation = &"gem"
+autoplay = "gem"
+frame_progress = 0.7445159
+
+[node name="gem_area" type="Area2D" parent="gem_sprite"]
+script = ExtResource("2_edvqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gem_sprite/gem_area"]
+shape = SubResource("CircleShape2D_whk3i")
+
+[connection signal="body_entered" from="gem_sprite/gem_area" to="gem_sprite/gem_area" method="_on_body_entered"]

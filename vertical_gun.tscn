@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://derwp1ypeqg1n"]
+
+[ext_resource type="Texture2D" uid="uid://ccnxdlhkjuus4" path="res://cannon_2D/frame_0.png" id="1_k8v55"]
+[ext_resource type="Texture2D" uid="uid://r2ko45tnsi13" path="res://cannon_2D/frame_1.png" id="2_5k1dv"]
+[ext_resource type="Texture2D" uid="uid://dit7pq5ltkkb6" path="res://cannon_2D/frame_2.png" id="3_1q2t8"]
+[ext_resource type="Texture2D" uid="uid://bq52kiorbt5od" path="res://cannon_2D/frame_3.png" id="4_ffpt7"]
+[ext_resource type="Texture2D" uid="uid://cxfgy45sungma" path="res://cannon_2D/frame_4.png" id="5_pact7"]
+[ext_resource type="Texture2D" uid="uid://d32ev5547m1ev" path="res://cannon_2D/frame_5.png" id="6_uerdb"]
+[ext_resource type="Texture2D" uid="uid://fi0g4dauv8ik" path="res://cannon_2D/frame_6.png" id="7_nsm00"]
+[ext_resource type="Script" uid="uid://kj5l60ykr4r2" path="res://gun.gd" id="8_1q2t8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3y3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k8v55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5k1dv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1q2t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ffpt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pact7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uerdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nsm00")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 6.0
+}]
+
+[node name="gun" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -9
+sprite_frames = SubResource("SpriteFrames_g3y3w")
+animation = &"shooting"
+autoplay = "shooting"
+script = ExtResource("8_1q2t8")
+
+[node name="muzzle" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 20)
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_frame_changed"]

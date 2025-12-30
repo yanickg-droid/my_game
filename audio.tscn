@@ -1,0 +1,81 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxj1m1ifo3cyu"]
+
+[ext_resource type="AudioStream" uid="uid://dd70yyn61e3s1" path="res://sound_effects/sword-blade-slicing-flesh-352708.mp3" id="1_5olcg"]
+[ext_resource type="AudioStream" uid="uid://bi1camsomkces" path="res://sound_effects/086409_retro-gun-shot-81545.mp3" id="2_q45hi"]
+[ext_resource type="AudioStream" uid="uid://5we08fngyro3" path="res://sound_effects/funny-spring-jump-140378.mp3" id="3_ybffx"]
+[ext_resource type="AudioStream" uid="uid://b2m8vrpnqh6d8" path="res://player_sprites/sound_effects/helicopter-rotor-69330.wav" id="4_enkql"]
+[ext_resource type="AudioStream" uid="uid://m6fc4lnaomr4" path="res://sound_effects/monster-bite-44538.mp3" id="5_8w7rj"]
+[ext_resource type="AudioStream" uid="uid://del3qjlcbbhtq" path="res://sound_effects/retro-coin-1-236677.mp3" id="6_74vr2"]
+[ext_resource type="AudioStream" uid="uid://w0ynyptcv77d" path="res://sound_effects/retro-jump-1-236684.mp3" id="7_x5nyw"]
+[ext_resource type="AudioStream" uid="uid://cmv87wqv2oxhn" path="res://sound_effects/retro-select-236670.mp3" id="8_0svpk"]
+[ext_resource type="AudioStream" uid="uid://dcg4c8gaijxt5" path="res://sound_effects/retro-video-game-death-95730.mp3" id="9_5olcg"]
+[ext_resource type="AudioStream" uid="uid://pbxhkaynfvsq" path="res://sound_effects/3_knife_slash_c-92500.mp3" id="10_pgqns"]
+[ext_resource type="AudioStream" uid="uid://4jsy2eck6pin" path="res://falling rocks/sound_effects/fire-sound-334130.mp3" id="11_cqcg1"]
+[ext_resource type="AudioStream" uid="uid://bd3u65psgpbjr" path="res://sound_effects/chest-opening-87569.mp3" id="12_564a7"]
+[ext_resource type="AudioStream" uid="uid://b5fap6c1vlygx" path="res://falling rocks/sound_effects/step-skeleton-47785.mp3" id="13_qf6oy"]
+[ext_resource type="AudioStream" uid="uid://dc61o6es3oth1" path="res://sound_effects/cinematic-background-291979.mp3" id="14_tor12"]
+[ext_resource type="AudioStream" uid="uid://cvfe0r013vy7i" path="res://sound_effects/retro-143303.mp3" id="15_enkql"]
+[ext_resource type="AudioStream" uid="uid://cfdvahemvfmmu" path="res://sound_effects/Skeleton Footstep 4 - QuickSounds.com.mp3" id="16_f6syg"]
+[ext_resource type="AudioStream" uid="uid://c1fbl87b8soh1" path="res://sound_effects/you-win-sequence-2-183949.mp3" id="17_enkql"]
+
+[node name="audio" type="Node2D"]
+
+[node name="shuriken_death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5olcg")
+volume_db = 24.0
+
+[node name="gun_shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q45hi")
+volume_db = 1.025
+max_polyphony = 10
+
+[node name="spring_jumper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ybffx")
+
+[node name="shuriken_rotation" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_enkql")
+mix_target = 2
+max_polyphony = 10
+
+[node name="snake_bite" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8w7rj")
+
+[node name="gem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_74vr2")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_x5nyw")
+volume_db = -20.0
+
+[node name="button_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0svpk")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5olcg")
+
+[node name="blade_emerging" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pgqns")
+max_polyphony = 24
+
+[node name="fire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cqcg1")
+
+[node name="chest_opening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_564a7")
+
+[node name="skeleton_enemy_walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qf6oy")
+
+[node name="cinematic_bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_tor12")
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("15_enkql")
+volume_db = -27.0
+
+[node name="skeleton_gaurd_walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_f6syg")
+
+[node name="victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_enkql")

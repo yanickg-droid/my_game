@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgcg45ga1vk3"]
+
+[ext_resource type="Script" uid="uid://gk2ihbw5fytm" path="res://chest_opening.gd" id="1_8uwsg"]
+[ext_resource type="Texture2D" uid="uid://bunbbmjqye0ym" path="res://assets/chest.png" id="1_twpm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twpm2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uwsg"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(0, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp1or"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(64, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trlyu"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(128, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7mpe"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(192, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv3sb"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(256, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_day8l"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(320, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3ekh"]
+atlas = ExtResource("1_twpm2")
+region = Rect2(384, 0, 64, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6u83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uwsg")
+}, {
+"duration": 1.41,
+"texture": SubResource("AtlasTexture_bp1or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trlyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7mpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv3sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_day8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3ekh")
+}],
+"loop": false,
+"name": &"chest_opening",
+"speed": 10.0
+}]
+
+[node name="chest" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 3)
+scale = Vector2(1.5, 1.3)
+script = ExtResource("1_8uwsg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+shape = SubResource("RectangleShape2D_twpm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x6u83")
+animation = &"chest_opening"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

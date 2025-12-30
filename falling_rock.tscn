@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=3 uid="uid://cnsabd60bcd7"]
+
+[ext_resource type="Texture2D" uid="uid://cpnx53qfv1v15" path="res://assets/falling rocks/frame0.png" id="1_ct1ij"]
+[ext_resource type="Script" uid="uid://k0j2hpsyhhcl" path="res://falling_rock.gd" id="1_d2e3w"]
+[ext_resource type="Texture2D" uid="uid://cbrcytdp0n72e" path="res://assets/falling rocks/frame1.png" id="2_35qjv"]
+[ext_resource type="Texture2D" uid="uid://c2f1m75w1tbrn" path="res://assets/falling rocks/frame2.png" id="3_y4qxm"]
+[ext_resource type="Texture2D" uid="uid://d25wc7rmupmge" path="res://assets/falling rocks/frame3.png" id="4_w623m"]
+[ext_resource type="Texture2D" uid="uid://ct1i57u2ertrj" path="res://assets/falling rocks/frame4.png" id="5_d2e3w"]
+[ext_resource type="Texture2D" uid="uid://dlpd0fombxk8y" path="res://assets/falling rocks/frame5.png" id="6_kj7l1"]
+[ext_resource type="Texture2D" uid="uid://sv2vfnmn3425" path="res://assets/falling rocks/frame6.png" id="7_dkeno"]
+[ext_resource type="Texture2D" uid="uid://bwxdxg7y0eqpg" path="res://assets/falling rocks/frame7.png" id="8_m6tlt"]
+[ext_resource type="Texture2D" uid="uid://dcbn23f5ao5ns" path="res://assets/falling rocks/frame8.png" id="9_5hkq5"]
+[ext_resource type="Texture2D" uid="uid://26ni133u6ac4" path="res://assets/falling rocks/frame9.png" id="10_5i3qe"]
+[ext_resource type="Texture2D" uid="uid://cp3uwmk8ncfby" path="res://assets/falling rocks/frame10.png" id="11_num7i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xygnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ct1ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_35qjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y4qxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w623m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2e3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kj7l1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dkeno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m6tlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5hkq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5i3qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_num7i")
+}],
+"loop": false,
+"name": &"rock_breaking",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uasp"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e3w"]
+size = Vector2(16, 16)
+
+[node name="falling_rock" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_xygnr")
+animation = &"rock_breaking"
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+script = ExtResource("1_d2e3w")
+
+[node name="break_trigger" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+visible = false
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_4uasp")
+
+[node name="rock_hitbox" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_d2e3w")
+
+[connection signal="animation_finished" from="AnimatableBody2D/AnimatedSprite2D" to="AnimatableBody2D/Area2D" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatableBody2D/AnimatedSprite2D" to="AnimatableBody2D/Area2D" method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="AnimatableBody2D/Area2D" to="AnimatableBody2D/Area2D" method="_on_body_entered"]

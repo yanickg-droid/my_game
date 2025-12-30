@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://dleb2b7cmnipg"]
+
+[ext_resource type="Texture2D" uid="uid://cxvpkht7e4rgw" path="res://Jumper.png" id="1_jgrh8"]
+[ext_resource type="Script" uid="uid://c3jvm8n3h8svw" path="res://jumper.gd" id="1_ysxgc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysxgc"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw5d4"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub16k"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arjby"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jetm4"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4kmm"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt1hf"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(144, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxw23"]
+atlas = ExtResource("1_jgrh8")
+region = Rect2(168, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_entnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysxgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw5d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub16k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arjby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jetm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4kmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt1hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxw23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysxgc")
+}],
+"loop": false,
+"name": &"spring_jumper",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgrh8"]
+size = Vector2(19, 3)
+
+[node name="jumper" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+script = ExtResource("1_ysxgc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D/Area2D"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_entnp")
+animation = &"spring_jumper"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_jgrh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_jgrh8")
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_entered"]

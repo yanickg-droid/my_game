@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnn878i1sn3ag"]
+
+[ext_resource type="Texture2D" uid="uid://df8mnatangrxp" path="res://istockphoto-1887326053-612x612.jpg" id="1_txase"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="bg2" type="Sprite2D" parent="."]
+z_index = -4096
+scale = Vector2(0.32109374, 0.32916665)
+texture = ExtResource("1_txase")

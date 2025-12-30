@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://c73fephaij3bm"]
+
+[ext_resource type="Texture2D" uid="uid://jwrqcwe46q2d" path="res://assets/Wall Torches/walltorch3.png" id="1_g26tw"]
+[ext_resource type="Texture2D" uid="uid://cc1bakd1we8u5" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani1.png" id="2_o0fn7"]
+[ext_resource type="Texture2D" uid="uid://b0gr762ukxqpy" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani5.png" id="3_rm6be"]
+[ext_resource type="Texture2D" uid="uid://btlmh2t2imjei" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani2.png" id="4_uvfxl"]
+[ext_resource type="Texture2D" uid="uid://fluvui5fo58w" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani4.png" id="5_axljx"]
+[ext_resource type="Texture2D" uid="uid://fpcgnk0ejak6" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani3.png" id="6_4dooh"]
+[ext_resource type="Texture2D" uid="uid://ci6dbdg6o6174" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani6.png" id="7_bcii3"]
+[ext_resource type="Texture2D" uid="uid://b54sxxwi64d2e" path="res://assets/Wall Torches/Flame Animations Files/walltorchflame1/walltorchflameani7.png" id="8_ruy5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4v7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o0fn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rm6be")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uvfxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_axljx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4dooh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bcii3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ruy5m")
+}],
+"loop": true,
+"name": &"flame",
+"speed": 12.0
+}]
+
+[node name="wall_torch" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g26tw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -6)
+scale = Vector2(0.85714287, 0.85714287)
+sprite_frames = SubResource("SpriteFrames_a4v7e")
+animation = &"flame"
+autoplay = "flame"

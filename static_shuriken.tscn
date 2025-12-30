@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://37b745txoxux"]
+
+[ext_resource type="Script" uid="uid://bvoyenaj5if5i" path="res://shuriken_hitbox.gd" id="1_j8o03"]
+[ext_resource type="Script" uid="uid://de1y6q44uyxed" path="res://static_shuriken.gd" id="1_t27w1"]
+[ext_resource type="Texture2D" uid="uid://bl0cnhlg5uoya" path="res://Suriken.png" id="1_vfc5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8o03"]
+radius = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t27w1"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whel1"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h77pm"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsf8h"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jutg"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71wq7"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0o8l"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m75tk"]
+atlas = ExtResource("1_vfc5b")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_78lat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t27w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whel1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h77pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsf8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jutg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71wq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0o8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m75tk")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 50.0
+}]
+
+[node name="static_shuriken" type="Node2D"]
+script = ExtResource("1_t27w1")
+
+[node name="shuriken_hitbox" type="Area2D" parent="."]
+script = ExtResource("1_j8o03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shuriken_hitbox"]
+shape = SubResource("CircleShape2D_j8o03")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="shuriken_hitbox"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_78lat")
+animation = &"spinning"
+autoplay = "spinning"
+
+[connection signal="body_entered" from="shuriken_hitbox" to="shuriken_hitbox" method="_on_body_entered"]

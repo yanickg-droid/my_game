@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bmqi2geofw4nc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 500
+emission_shape = 4
+emission_points = PackedVector2Array(0, 0, 0, 0)
+emission_colors = PackedColorArray()
+spread = 10.77
+initial_velocity_min = 800.0
+initial_velocity_max = 1200.0
+linear_accel_min = 1000.0
+linear_accel_max = 2000.0
+angle_min = -720.0
+angle_max = -720.0
+scale_amount_min = 0.6
+scale_amount_max = 0.6

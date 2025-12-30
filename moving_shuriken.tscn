@@ -1,0 +1,190 @@
+[gd_scene load_steps=19 format=3 uid="uid://drq2j83a24l23"]
+
+[ext_resource type="Script" uid="uid://1er7grff7jrj" path="res://moving_shuriken.gd" id="1_2lyhq"]
+[ext_resource type="Script" uid="uid://bvoyenaj5if5i" path="res://shuriken_hitbox.gd" id="1_cu7w5"]
+[ext_resource type="Texture2D" uid="uid://bl0cnhlg5uoya" path="res://Suriken.png" id="2_2lyhq"]
+[ext_resource type="AudioStream" uid="uid://sw438dfsicwo" path="res://player_sprites/sound_effects/funny-spring-jump-140378.mp3" id="4_ayrwg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ayrwg"]
+radius = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t27w1"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whel1"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h77pm"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsf8h"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jutg"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71wq7"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0o8l"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m75tk"]
+atlas = ExtResource("2_2lyhq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qskd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t27w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whel1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h77pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsf8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jutg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71wq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0o8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m75tk")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 50.0
+}]
+
+[sub_resource type="Animation" id="Animation_2lyhq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cu7w5"]
+resource_name = "movement"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 831.74854),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ayrwg"]
+resource_name = "reverse_movement"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 831.74854),
+"update": 0,
+"values": [Vector2(100, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayrwg"]
+_data = {
+&"RESET": SubResource("Animation_2lyhq"),
+&"movement": SubResource("Animation_cu7w5"),
+&"reverse_movement": SubResource("Animation_ayrwg")
+}
+
+[node name="moving_shuriken" type="Node2D"]
+script = ExtResource("1_2lyhq")
+
+[node name="shuriken_hitbox" type="Area2D" parent="."]
+script = ExtResource("1_cu7w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shuriken_hitbox"]
+shape = SubResource("CircleShape2D_ayrwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="shuriken_hitbox"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_4qskd")
+animation = &"spinning"
+autoplay = "spinning"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shuriken_hitbox"]
+libraries = {
+&"": SubResource("AnimationLibrary_ayrwg")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ayrwg")
+
+[connection signal="body_entered" from="shuriken_hitbox" to="shuriken_hitbox" method="_on_body_entered"]

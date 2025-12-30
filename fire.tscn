@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1vad04xkfvi3"]
+
+[ext_resource type="Texture2D" uid="uid://b1pdk0k17ijfn" path="res://assets/burning_loop_2.png" id="1_2pqqt"]
+[ext_resource type="Script" uid="uid://c3dsvx0221vmw" path="res://fire_hitbox.gd" id="1_5ltu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ltu8"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(0, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6ecg"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(20, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icfi2"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(40, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo6dx"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(60, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2yji"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(80, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjybw"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(100, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f37y5"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(120, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgnow"]
+atlas = ExtResource("1_2pqqt")
+region = Rect2(140, 0, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwgbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ltu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6ecg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icfi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo6dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2yji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjybw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f37y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgnow")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umj4n"]
+radius = 6.0827627
+
+[node name="fire" type="Node2D"]
+
+[node name="fire_hitbox" type="Area2D" parent="."]
+script = ExtResource("1_5ltu8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="fire_hitbox"]
+scale = Vector2(1.6331604, 1.6331604)
+sprite_frames = SubResource("SpriteFrames_bwgbv")
+animation = &"burning"
+autoplay = "burning"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fire_hitbox"]
+position = Vector2(1, 9)
+scale = Vector2(0.8037243, 1.9329338)
+shape = SubResource("CircleShape2D_umj4n")
+
+[connection signal="body_entered" from="fire_hitbox" to="fire_hitbox" method="_on_body_entered"]
