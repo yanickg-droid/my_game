@@ -8,6 +8,7 @@ extends Area2D
 func _on_body_entered(_body: Node2D) -> void:
 	if _body is CharacterBody2D:
 		animated_sprite_2d.play("rock_breaking")
+		Audio.get_node('stone_breaking').play()
 	
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if animated_sprite_2d.frame==6:

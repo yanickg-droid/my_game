@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://b0bucyxl737rq"]
+[gd_scene load_steps=88 format=4 uid="uid://b0bucyxl737rq"]
 
 [ext_resource type="Script" uid="uid://0vx4qaaucl8h" path="res://game.gd" id="1_i2p71"]
 [ext_resource type="PackedScene" uid="uid://c4p5tb2j5tx8e" path="res://player.tscn" id="3_7jktm"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://q3hxl7c4ejbk" path="res://assets/world/Texture/TX Village Props.png" id="30_xfvwf"]
 [ext_resource type="PackedScene" uid="uid://hvur6rniqua6" path="res://waterfall.tscn" id="31_r62pu"]
 [ext_resource type="PackedScene" uid="uid://uhga18ah3kkq" path="res://fan_platform.tscn" id="32_klri6"]
+[ext_resource type="PackedScene" uid="uid://cdsi67qoclyx0" path="res://checkpoint.tscn" id="33_t46w6"]
 [ext_resource type="Script" uid="uid://cdgikkjg5j5us" path="res://chest_control_trigger.gd" id="36_4v2jo"]
 [ext_resource type="Script" uid="uid://csrcgy7piyee5" path="res://camera_zoom_out.gd" id="37_l1i01"]
 [ext_resource type="Script" uid="uid://bg1xpf04tg3qy" path="res://game_finish_slomo.gd" id="41_edr7y"]
@@ -294,6 +295,8 @@ a = Vector2(0, -58)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t46w6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0de7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m28ev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dhpj7"]
 texture = ExtResource("30_xfvwf")
@@ -1616,7 +1619,7 @@ script = ExtResource("1_i2p71")
 
 [node name="player" parent="." instance=ExtResource("3_7jktm")]
 z_index = 10
-position = Vector2(-18, -17)
+position = Vector2(3743, -711)
 floor_max_angle = 1.0471976
 script = ExtResource("4_fc0e3")
 
@@ -1678,8 +1681,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -287.90906
 offset_top = -162.31384
-offset_right = 287.95148
-offset_bottom = 160.68616
+offset_right = 287.78284
+offset_bottom = 164.2008
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -2043,6 +2046,9 @@ scale = Vector2(1.558, 0.894)
 [node name="fan_platform" parent="assets" instance=ExtResource("32_klri6")]
 position = Vector2(3997, -614)
 
+[node name="checkpoint" parent="assets" instance=ExtResource("33_t46w6")]
+position = Vector2(3153, -628)
+
 [node name="areas" type="Node2D" parent="."]
 
 [node name="portal_hitbox" type="Area2D" parent="areas"]
@@ -2161,12 +2167,11 @@ script = ExtResource("36_4v2jo")
 shape = SubResource("RectangleShape2D_l1i01")
 
 [node name="camera_zoom_out" type="Area2D" parent="areas"]
-position = Vector2(3269, -632)
+position = Vector2(3280, -632)
 scale = Vector2(1, 3.8)
 script = ExtResource("37_l1i01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/camera_zoom_out"]
-position = Vector2(8.999999, 0.26315787)
 scale = Vector2(0.16000003, 1)
 shape = SubResource("RectangleShape2D_4v2jo")
 
@@ -2185,13 +2190,18 @@ script = ExtResource("42_kq12w")
 shape = SubResource("RectangleShape2D_t46w6")
 
 [node name="camera_normal" type="Area2D" parent="areas"]
-position = Vector2(3331.0254, -645.5836)
+position = Vector2(3110, -635)
 script = ExtResource("45_lwlx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/camera_normal"]
-position = Vector2(-225.02539, 12.583618)
 scale = Vector2(0.120019555, 4.7200003)
 shape = SubResource("RectangleShape2D_0de7l")
+
+[node name="color_rect_transformation" type="Area2D" parent="areas"]
+position = Vector2(4181, -846)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/color_rect_transformation"]
+shape = SubResource("RectangleShape2D_m28ev")
 
 [node name="tilemaps" type="Node2D" parent="."]
 
@@ -2218,20 +2228,21 @@ tile_set = SubResource("TileSet_7knny")
 [connection signal="body_entered" from="areas/bg_trigger_to_cave" to="areas/bg_trigger_to_cave" method="_on_body_entered"]
 [connection signal="body_entered" from="areas/world_boundary" to="player" method="_on_world_boundary_body_entered"]
 [connection signal="body_entered" from="areas/double_jump_unlock" to="areas/double_jump_unlock" method="_on_body_entered"]
-[connection signal="area_entered" from="areas/bullet_delete" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_shape_entered" from="areas/bullet_delete" to="." method="_on_bullet_delete_area_shape_entered"]
-[connection signal="area_entered" from="areas/bullet_delete2" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete3" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete4" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete5" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete6" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete7" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete8" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete9" to="." method="_on_bullet_delete_area_entered"]
-[connection signal="area_entered" from="areas/bullet_delete10" to="." method="_on_bullet_delete_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete" to="player" method="_on_bullet_delete_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete2" to="player" method="_on_bullet_delete_2_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete3" to="player" method="_on_bullet_delete_3_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete4" to="player" method="_on_bullet_delete_4_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete5" to="player" method="_on_bullet_delete_5_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete6" to="player" method="_on_bullet_delete_6_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete7" to="player" method="_on_bullet_delete_7_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete8" to="player" method="_on_bullet_delete_8_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete9" to="player" method="_on_bullet_delete_9_area_entered"]
+[connection signal="area_entered" from="areas/bullet_delete10" to="player" method="_on_bullet_delete_10_area_entered"]
 [connection signal="body_entered" from="areas/bg_trigger_to_night" to="areas/bg_trigger_to_night" method="_on_body_entered"]
 [connection signal="body_entered" from="areas/chest_control_trigger" to="areas/chest_control_trigger" method="_on_body_entered"]
 [connection signal="body_entered" from="areas/camera_zoom_out" to="areas/camera_zoom_out" method="_on_body_entered"]
+[connection signal="body_entered" from="areas/game_finish_slomo" to="player" method="_on_game_finish_slomo_body_entered"]
 [connection signal="body_entered" from="areas/game_finish_slomo" to="areas/game_finish_slomo" method="_on_body_entered"]
 [connection signal="body_entered" from="areas/fan_platform_trigger_button" to="areas/fan_platform_trigger_button" method="_on_body_entered"]
 [connection signal="body_entered" from="areas/camera_normal" to="areas/camera_normal" method="_on_body_entered"]
+[connection signal="body_entered" from="areas/color_rect_transformation" to="player" method="_on_color_rect_transformation_body_entered"]

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_j7r08"]
 radius = 6.0
 
-[node name="horizontal_bullet" type="Node2D"]
+[node name="horizontal_bullet" type="Node2D" groups=["enemies"]]
 
 [node name="horizontal" type="Area2D" parent="."]
 script = ExtResource("1_onl2y")

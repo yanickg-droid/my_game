@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxj1m1ifo3cyu"]
+[gd_scene load_steps=20 format=3 uid="uid://bxj1m1ifo3cyu"]
 
 [ext_resource type="AudioStream" uid="uid://dd70yyn61e3s1" path="res://sound_effects/sword-blade-slicing-flesh-352708.mp3" id="1_5olcg"]
 [ext_resource type="AudioStream" uid="uid://bi1camsomkces" path="res://sound_effects/086409_retro-gun-shot-81545.mp3" id="2_q45hi"]
@@ -17,6 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://cvfe0r013vy7i" path="res://sound_effects/retro-143303.mp3" id="15_enkql"]
 [ext_resource type="AudioStream" uid="uid://cfdvahemvfmmu" path="res://sound_effects/Skeleton Footstep 4 - QuickSounds.com.mp3" id="16_f6syg"]
 [ext_resource type="AudioStream" uid="uid://c1fbl87b8soh1" path="res://sound_effects/you-win-sequence-2-183949.mp3" id="17_enkql"]
+[ext_resource type="AudioStream" uid="uid://b26s0u7oxa08o" path="res://sound_effects/stones-sound-195969.mp3" id="18_il71m"]
+[ext_resource type="AudioStream" uid="uid://b62dsrgbp4vub" path="res://sound_effects/charge-up-sound-effect-447383.mp3" id="19_iet0q"]
 
 [node name="audio" type="Node2D"]
 
@@ -79,3 +81,9 @@ stream = ExtResource("16_f6syg")
 
 [node name="victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_enkql")
+
+[node name="stone_breaking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_il71m")
+
+[node name="checkpoint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_iet0q")

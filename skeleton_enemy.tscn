@@ -225,7 +225,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dt1"]
 size = Vector2(167.09375, 65.95917)
 
-[node name="skeleton_enemy" type="Node2D"]
+[node name="skeleton_enemy" type="Node2D" groups=["enemies"]]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(3473, -500)

@@ -4,6 +4,7 @@ extends Area2D
 @onready var bg_1: Sprite2D = $"../../player/player_camera/bg1"
 @onready var gem_count: Label = $"../../player/player_camera/gem_count"
 var camera_zoom:Tween
+@onready var color_rect: ColorRect = $"../../player/ColorRect"
 var camera_movement:Tween
 var gem_count_movement:Tween
 var bg_zoom1:Tween
@@ -25,3 +26,4 @@ func _on_body_entered(body: Node2D) -> void:
 			Audio.get_child(13).stream.loop=true
 			Audio.get_child(13).play()
 			Audio.get_child(14).stop()
+			color_rect.size=Vector2(1160,650)

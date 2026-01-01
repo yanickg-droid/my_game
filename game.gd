@@ -1,5 +1,10 @@
-extends Node2D
+extends Node
 
-func _on_bullet_delete_area_entered(area: Area2D) -> void:
-	#if area==vertical_bullet or area==horizontal_bullet:
-		area.get_parent().queue_free() # Replace with function body.
+var checkpoint_position: Vector2 = Vector2.ZERO
+const STARTING_POINT := Vector2(-32, -25)
+
+func set_checkpoint(pos: Vector2) -> void:
+	checkpoint_position = pos
+
+func respawn() -> void:
+	get_tree().reload_current_scene()

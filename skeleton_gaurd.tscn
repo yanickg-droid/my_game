@@ -160,7 +160,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqymg"]
 size = Vector2(198, 47.99997)
 
-[node name="skeleton_gaurd" type="Node2D"]
+[node name="skeleton_gaurd" type="Node2D" groups=["enemies"]]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(3946, -649)
